@@ -1,0 +1,86 @@
+/***** acr_1.scss ****************/
+/******** Form elements ********/
+@import url('partials/mixins');
+	.form{
+		padding: rem(40px 40px);
+		.form-group{
+			@include form-group-element;
+			margin-bottom: 2rem;
+			select{
+				@include form-select-options;
+				}
+			.form-attachment{
+				input[type="file"]{
+					display: none;
+				}
+				p{
+					@include label-style-text;
+				}
+				label{
+					color: #000;
+					width: 100%;
+					max-width: 300px;
+					background-color: #E6E6E6;
+					border: 1px solid #DADADA;
+					box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+					padding: rem(15px 20px);
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					font-size: rem(14px);
+					font-weight: normal;
+					letter-spacing: 0.5px;
+					text-transform: capitalize;
+					cursor: pointer;
+					transition: 0.4s ease-in-out;
+						& + i:hover{
+							transform: rotate(180deg);
+						}
+				}
+			}
+			.form-check{
+				/*padding: 10px 0 10px 1.25rem;*/
+				input[type="checkbox"]{
+					margin-top: .1rem;
+					opacity: 0;
+					& + label{
+						position: relative;
+						display: inline-block;
+						font-size: rem(14px);
+						color:#000;
+						font-weight: normal;
+						text-transform: capitalize;
+						&:before{
+							content: '\2714';
+							display: block;
+							position: absolute;
+							left: -18px;
+							top: 0;
+							width: 14px;
+							height: 14px;
+							border: 1px solid #DADADA;
+							border-radius: 0.2em;
+							color: transparent;
+							transition: .2s;
+						}
+					}
+					&:checked + label{
+						&:before{
+							background-color: green;
+							border-color: #bfb;
+							color: #fff;
+						}
+					}
+					&:disabled{
+						& + label{
+							cursor: not-allowed;
+						}
+					}
+				}
+			}	
+		}
+		.modal-title{
+			color: #000;
+			font-size: rem(14px);
+		}
+	}

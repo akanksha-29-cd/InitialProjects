@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>ACR landing page</title>
+
+	<!-- Font-family -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap" rel="stylesheet">
+
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Bootstrap font-awsome CSS -->
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+	<link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+	<div class="page-container">
+		<header>
+			<nav class="navbar navbar-expand-md navbar-light bg-light">
+				<a class="navbar-brand">
+					<img src="images/ACR.png" class="img-fluid" alt="ACR logo" style="width: 150px;">
+				</a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse navigation-sec" id="navbarNav">
+			    <ul class="navbar-nav ml-md-auto">
+			      <li class="nav-item active">
+			        <a class="nav-link" href="acr_1.html">ACR REQUEST <span class="sr-only">(current)</span></a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="acr_2.html">My ACR</a>
+			      </li>
+			      	<li class="nav-item">
+			        <a class="nav-link" href="acr_3.html">Feedback</a>
+			      </li>
+			      	<li class="nav-item">
+			        <a class="nav-link" href="#">admin view</a>
+			      </li>
+			      <li id="line"></li>
+			    </ul>
+		    	<div class="user-drop-down ml-md-auto">
+		    		<div class="dropdown">
+						<button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    <h3 class="pr-2">John Doe</h3>
+							<img src="images/man.jpg" alt="user profile">
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+						    <a class="dropdown-item" href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>Log out</a>
+						 </div>
+					</div>
+				</div>
+		    </div>
+			</nav>
+		</header>
+		<aside>
+			<div class="aside_logo">
+				<img src="images/man.jpg" class="img-fluid rounded-circle" alt="aside logo">
+			</div>
+			<div class="py-4 user-short-description">
+				<h3>John Doe</h3>
+				<p>Software support engineer</p>
+				<div class="py-2 button">
+					<a href="#">Grindwell Norton</a>
+				</div>
+			</div>
+			<div class="user-short-description-two">
+				<div class="desc joining-date">
+					<p>Joining <br> Date<span>21st Jan 2020</span></p>
+				</div>
+				<div class="desc experience-in">
+					<p>Experience <br> In<span>2.0</span></p>
+				</div>
+				<div class="desc experience-out">
+					<p>Experience <br> Out<span>4.5</span></p>
+				</div>
+			</div>
+			<div class="footer-logo">
+				<p>Designed by</p>
+				<img src="images/indec_new.png" alt="footer logo">
+			</div>
+		</aside>
+		<main>
+			<div class="main-header-sec">
+				<div class="heading">
+					<h3>ACR Requests to update</h3>
+				</div>
+				<div class="header-select">
+					<span>Status:</span>
+					<select name="selector" id="selector">
+						<option>Select</option>
+						<option value="1">All</option>
+						<option value="2">Pending</option>
+						<option value="3">Approved</option>
+					</select>
+				</div>
+			</div>			
+			<ul class="list-unstyled">
+			  	<li class="media">
+				    <img class="mr-4" src="images/man.jpg" alt="Generic placeholder image">
+				    <div class="media-body">
+				      <h5>Deepak Sharma</h5>
+				      <div class="row no-gutters media-body-info">
+				      	<p><strong>SGID :-</strong><span class="mr-4">A7704913</span></p>
+				      	<p><strong>GRADE :-</strong><span class="mr-4">M11</span></p>
+				      </div>
+				      <div class="row no-gutters media-body-info">
+				      	<p><strong>COMPANY :-</strong><span class="mr-4">MUMBAI-SG INDEC</span></p>
+				      	<p><strong>BUSINESS :-</strong><span class="mr-4">INDEC APPS</span></p>
+				      </div>
+				      <div class="row no-gutters media-body-info">
+				      	<p><strong>SUB:-</strong><span>Request to change to technical</span></p>
+				      </div>
+				    </div>
+				    <div class="media-icons">
+				    	<div class="succes-icon"><img src="images/tick.png" alt="tick"></div>
+				    	<div class="failer-icon"><img src="images/Pending.png" alt=""></div>
+				    </div>
+			  	</li>
+				<li class="media">
+				    <img class="mr-4" src="images/man.jpg" alt="Generic placeholder image">
+				    <div class="media-body">
+				      <h5>Deepak Sharma</h5>
+				      <div class="row no-gutters media-body-info">
+				      	<p><strong>SGID :-</strong><span class="mr-4">A7704913</span></p>
+				      	<p><strong>GRADE :-</strong><span class="mr-4">M11</span></p>
+				      </div>
+				      <div class="row no-gutters media-body-info">
+				      	<p><strong>COMPANY :-</strong><span class="mr-4">MUMBAI-SG INDEC</span></p>
+				      	<p><strong>BUSINESS :-</strong><span class="mr-4">INDEC APPS</span></p>
+				      </div>
+				      <div class="row no-gutters media-body-info">
+				      	<p><strong>SUB:-</strong><span>Request to change to technical</span></p>
+				      </div>
+				    </div>
+				    <div class="media-icons">
+				    	<div class="succes-icon"><img src="images/tick.png" alt="tick"></div>
+				    	<div class="failer-icon"><img src="images/Pending.png" alt=""></div>
+				    </div>
+		  		</li>
+				<li class="media">
+				    <img class="mr-4" src="images/man.jpg" alt="Generic placeholder image">
+				    <div class="media-body">
+				      <h5>Deepak Sharma</h5>
+				      <div class="row no-gutters media-body-info">
+				      	<p><strong>SGID :-</strong><span class="mr-4">A7704913</span></p>
+				      	<p><strong>GRADE :-</strong><span class="mr-4">M11</span></p>
+				      </div>
+				      <div class="row no-gutters media-body-info">
+				      	<p><strong>COMPANY :-</strong><span class="mr-4">MUMBAI-SG INDEC</span></p>
+				      	<p><strong>BUSINESS :-</strong><span class="mr-4">INDEC APPS</span></p>
+				      </div>
+				      <div class="row no-gutters media-body-info">
+				      	<p><strong>SUB:-</strong><span>Request to change to technical</span></p>
+				      </div>
+				    </div>
+				    <div class="media-icons">
+				    	<div class="succes-icon"><img src="images/tick.png" alt="tick"></div>
+				    	<div class="failer-icon"><img src="images/Pending.png" alt=""></div>
+				    </div>
+				</li>
+			</ul>
+		</main>
+	</div>
+
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html> 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Feedback form</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/main.min.css">
+    </head>
+    <body>
+        <div class="container-wrapper">
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-feedback" data-toggle="modal" data-target="#exampleModal">
+                Feedback Form
+            </button>
+  
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Feedback Form</h5>
+                <button type="button" class="close btn-model--close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div class="rating-sec rating-sec--1">
+                        <h5 class="modal-body--title">How do you evaluate the entire ACR process, right from request, discussions until closure?</h5>
+                        <div class="smileys-body--content">
+                            <ul class="nav rating-list">
+                                <li class="nav-item radio-img"><label><input type="radio" name="exampleRadios" id="exampleRadios1" value="option1"><img src="images/smile1.png" alt="happy" class="img-responsive" data-toggle="tooltip" data-placement="bottom" title="Sad"></label></li>
+                                <li class="nav-item radio-img"><label><input type="radio" name="exampleRadios" id="exampleRadios1" value="option1"><img src="images/smile2.png" alt="happy" class="img-responsive" data-toggle="tooltip" data-placement="bottom" title="Ok"></label></li>
+                                <li class="nav-item radio-img"><label><input type="radio" name="exampleRadios" id="exampleRadios1" value="option1"><img src="images/smile3.png" alt="happy" class="img-responsive" data-toggle="tooltip" data-placement="bottom" title="Average"></label></li>
+                                <li class="nav-item radio-img"><label><input type="radio" name="exampleRadios" id="exampleRadios1" value="option1"><img src="images/smile4.png" alt="happy" class="img-responsive" data-toggle="tooltip" data-placement="bottom" title="Happy"></label></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rating-sec rating-sec--2">
+                        <h5 class="modal-body--title">Please mention the reason for the above rating?</h5>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                    </div>
+                    <div class="rating-sec rating-sec--3">
+                        <h5 class="modal-body--title">What did you like most in the entire process?</h5>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                    </div>
+                    <div class="rating-sec rating-sec--4">
+                        <h5 class="modal-body--title">Suggestion for improvement, if any.(Optional)</h5>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-submit">Submit</button>
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        </body>
+    </html>

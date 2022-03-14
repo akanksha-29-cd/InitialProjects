@@ -1,0 +1,12 @@
+%btn-placeholder{
+	border-radius: 20px;
+	padding: 10px 80px;
+	font-size: rem(18px);
+	line-height: 15px;
+	color: #fff;
+	margin-right: rem(10px);
+	@media #{$breakpoint-tablet-max} {
+		padding: 10px 50px;
+		margin-bottom: 10px;
+    }
+}

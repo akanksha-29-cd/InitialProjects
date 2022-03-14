@@ -1,0 +1,115 @@
+
+aside{
+    height: 100vh;
+    border-right: 1px solid $screen-line;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    padding: rem(0 20px);
+    z-index: 3;
+    -webkit-transform: none;
+    transform: none;
+    transition: transform 300ms linear;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media #{$breakpoint-mobile}{
+        transform: translateX(-100%);
+        transition: transform 300ms linear;
+        /*display: none;*/        
+    }
+    .aside_logo{
+		/*text-align: center;*/
+        display: block;
+        width: 100%;
+        max-width: 150px;
+        height: 150px;
+		img{
+			/*border-radius: 50%;*/
+			/*border: 1px solid #000;*/
+            box-shadow: 0 2px 4px 2px rgba(0,0,0,0.3),inset 0 5px 5px rgba(0,0,0,0.5);
+            transition: 0.3s;
+		}
+    }
+    .user-short-description{
+        transition: 0.3s;
+    	h3{
+    		@include heading-3;
+    	}
+    	p{
+    		font-weight: normal;
+			font-size: rem(14px);	
+			color: #878787;
+			margin: rem(15px 0);
+    	}
+    	.button{
+
+    		a{
+    			color:#fff;
+    			&:link{
+					/*background: $aside-button-link;*/
+					border-radius: 20px;
+					padding: rem(10px 40px);
+					color: #fff;
+					font-size: rem(18px);
+					text-decoration: none;
+                    transition: color .8s;
+                    background-image: linear-gradient(to right, #12D8FA -19%, #1FA2FF 100%);
+					&:hover{
+						text-decoration: none;
+						cursor: pointer;
+						color: #fff;
+                        /*background-position: right center;*/
+			     	}
+    			}
+    		}
+    	}
+    }
+    .user-short-description-two{
+        transition: 0.3s;
+    	margin: rem(20px 0);
+    	display: flex;
+    	flex-direction: row;
+    	flex-wrap: wrap;
+    	.joining-date,
+    	.experience-in,
+    	.experience-out{
+    		display: flex;
+    		flex-direction: column;
+    		padding: rem(10px);
+    		font-size: rem(14px);
+  			text-align: center;
+  			border-right: 1px solid $screen-line;
+				&:last-child{
+					border-right: none;
+				}
+				p{
+					font-size: rem(14px);
+					font-weight: bold;
+					margin-bottom: 0;
+					padding: rem(0 15px);
+					&:first-child{
+						padding-right: 0;
+					}
+					& span{
+						display: block;
+						font-weight: normal;
+						padding-top: rem(15px);
+					}
+				}
+
+    	}
+    }
+    .footer-logo{
+        transition: 0.3s;
+    	position: absolute;
+    	bottom: 4%;
+    	left: 35%;
+    	img{
+    		max-width: 95px;
+    		height: auto;
+    	}
+    }
+}

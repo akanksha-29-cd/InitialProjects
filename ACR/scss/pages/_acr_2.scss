@@ -1,0 +1,77 @@
+/************* ACR_2.scss *********************/
+/************* My ACR *******************/
+@import url('partials/mixins');
+.main-header-sec{
+		@include main-header-size;
+		.heading{
+			padding: rem(10px 0);
+			h3{
+				@include heading-3;
+				margin-bottom: 0;
+			}			
+		}
+		.header-select{
+			span{
+				font-weight: bold;
+				font-size: rem(14px);
+				padding-right: rem(5px);
+			}
+			select{
+				position: relative;
+				padding: rem(5px 15px);
+    			border: 2px solid #ccccccf7;
+    			border-radius: 5px;
+			}
+		}
+
+}
+
+.list-unstyled{
+		margin: 0;
+		padding: 0;
+	.media{
+		padding: rem(30px 30px);
+		border-bottom: 1px solid $screen-line;
+		@media #{$breakpoint-tablet} {
+			display: flex;
+			flex-direction: column;
+			position: relative;
+		}
+		@media #{$breakpoint-mobile}{
+			/*display: flex;
+			flex-direction: column;
+			position: relative;*/
+			display: block;
+		}
+		img{
+			@include icons-styling;
+		}
+		.media-body{
+			padding: rem(20px 0);
+			h5{
+				@include heading-3;
+				margin-bottom: rem(20px);
+			}
+			.media-body-info{
+				padding-bottom: 20px;
+			}
+			@include media-body-info;
+		}
+		.media-icons{
+			padding: rem(20px 0);
+			@include media-icons-styling;
+
+				@media #{$breakpoint-tablet}{
+					position: absolute;
+					top: 0;
+					right: 37px;
+				}
+				@media #{$breakpoint-mobile}{
+					position: absolute;
+					top: 8px;
+					right: 37px;
+				}
+			}
+	}
+}
+

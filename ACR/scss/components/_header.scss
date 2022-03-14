@@ -1,0 +1,213 @@
+
+header{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	background: $header-bgcolor;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+	position: fixed;
+    z-index: 5;
+    @media #{$breakpoint-mobile}{
+		display: flex;
+		justify-content: space-around;
+    }
+	.navbar{
+		flex: 1;
+		background: $header-bgcolor !important;
+		padding: 0 1rem;
+		@media #{$breakpoint-mobile}{
+			.navbar-toggler{
+				border: none;
+				&:focus{
+					outline: none;
+				}
+				.navbar-toggler-icon{
+					background: #000;
+					height: 3px;
+					transition: .5s;
+					position: relative;
+					&:before{
+						content: '';
+					    position: absolute;
+					    top: -8px;
+					    left: 0px;
+					    width: 30px;
+					    height: 3px;
+					    background: #000;
+					    transition: .3s;
+					}
+					&:after{
+						content: '';
+					    position: absolute;
+					    top: 8px;
+					    left: 0px;
+					    width: 30px;
+					    height: 3px;
+					    background: #000;
+					    transition: .3s;
+					}
+				}	
+			}
+			.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+				transform: rotate(45deg);
+				top: 0;
+				transition: .3s;
+			}
+			.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+				transform: rotate(-45deg);
+				top: 0;
+				transition: .3s;
+			}
+			.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+				background: transparent;
+				transition: .2s;
+			}
+		}
+		.navbar-collapse{
+			/*justify-content: center;*/
+			justify-content: flex-start;
+			@media #{$breakpoint-mobile}{
+				border-top: 1px solid #292b31;
+				#navbarNav{
+					display: flex;
+					flex-direction: column;
+				}	
+			}
+			.navbar-nav{
+				text-align: center;
+				position: relative;
+				.nav-item{
+					list-style: outside none none;
+					margin: 0px 10px;
+					@media #{$breakpoint-mobile}{
+						border-bottom: 1px solid rgba(0,0,0,.075);
+						padding: 5px 0;
+						margin: 0;
+						&:hover{
+							background-color: #dee2e6;
+						}
+						&:active{
+							transform: translateY(-1px);
+						}
+					}
+					@media #{$breakpoint-tablet}{
+						&:last-child{
+							padding-right: 0;
+						}
+					}
+					@media #{$breakpoint-tablet-min}{
+						padding: 0px 20px;
+					}
+					.nav-link{
+					    font-weight: bold;
+					    font-size: rem(14px);
+					    padding: 0px;
+					    height: 40px;
+					    line-height: rem(40px);
+					    color: #1d1f24;
+					    text-transform: uppercase;
+						@media #{$breakpoint-mobile}{
+							height: auto;
+						    margin: 0 auto;
+						    line-height: 0px;
+						    padding: 20px 0px;
+						    font-size: rem(14px);		
+    					}
+					}
+				}
+				#line{
+					position: absolute;
+				    top: 50px;
+				    left: 17px;
+				    width: 130px;
+				    height: 5px;
+				    transition: all 600ms ease;
+				    background-color: #048CCD;
+				    @media #{$breakpoint-tablet}{
+				    	left: 0;
+				    	width: 120px;
+				    }
+				    @media #{$breakpoint-mobile}{
+				    	display: none;
+				    }
+				}
+				li:nth-child(2):hover ~ #line{
+					left: 183.32px;
+					width: 81.36px;
+					@media #{$breakpoint-tablet}{
+				    	left: 121px;
+				    	width: 80px;
+				    }
+				}
+				li:nth-child(3):hover ~ #line{
+					left: 308.32px;
+					width: 93.36px;
+					@media #{$breakpoint-tablet}{
+				    	left: 205px;
+				    	width: 100px;
+				    }
+				}
+				li:nth-child(4):hover ~ #line{
+					left: 452.32px;
+					width: 98.36px;
+					@media #{$breakpoint-tablet}{
+				    	left: 308px;
+				    	width: 109px;
+				    }
+				}			
+			}
+		}
+	}	
+	.user-drop-down{
+		display: flex;
+		align-items: center;
+		/*max-width: 21%;*/
+		/*padding: 0 19px;*/
+		@media #{$breakpoint-desktop-max}{
+			max-width: 22%;
+			/*padding: 0 19px;*/
+		}
+		@media #{$breakpoint-tablet}{
+			padding: 0;
+			/*max-width: 17%;*/
+		}
+		@media #{$breakpoint-mobile}{
+			/*margin: auto;*/
+			justify-content: center;
+		}
+		.dropdown{
+			button{
+				background-color: transparent;
+				&:focus, 
+				&:active{
+					outline: transparent;
+					box-shadow: none;
+				}
+				h3{
+					@include heading-3;
+					font-size: inherit;
+					display: inline-block;
+					color: #1d1f24;
+					@media #{$breakpoint-tablet}{
+		    			font-size: rem(14px);
+    				}
+				}
+				img{
+					max-width: 43px;
+					height: auto;
+					display: inline-block;
+					border-radius: 50%;
+					vertical-align: middle;
+				}
+			}
+			.dropdown-menu{
+				margin: .525rem 0 0;
+				.dropdown-item{
+					text-align: center;
+					padding: 5px 0;
+				}
+			}
+		}
+	}
+}

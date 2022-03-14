@@ -1,0 +1,110 @@
+/************ ACR_3 *******************/
+/************ Media elements ***********/
+.media{
+		padding: 20px 40px 0 40px;
+		@media #{$breakpoint-tablet} {
+			display: flex;
+			flex-direction: column;
+			position: relative;
+		}
+		@media #{$breakpoint-mobile}{
+			display: block;
+			position: relative;
+		}
+		img{
+			@include icons-styling;
+		}
+		.media-body{
+			padding: rem(20px 0 0 0);
+			h5{
+				@include heading-3;
+				/*margin-bottom: rem(20px);*/
+			}
+			.media-element{
+				margin: rem(12px 0 20px 0);
+				@include media-body-info;
+/*				.media-body-info{
+					padding-bottom: 10px;
+				}*/
+
+			}
+			.form-group{
+				margin-bottom: 2rem;
+				@include form-group-element;
+					&:nth-child(2){
+					margin-bottom: 0;
+					}
+			}
+		}
+		.media-icons{
+			padding: rem(20px 0);
+			@include media-icons-styling;
+				@media #{$breakpoint-tablet}{
+					position: absolute;
+					top: 0;
+					right: 37px;
+				}
+				@media #{$breakpoint-mobile}{
+					position: absolute;
+					top: 0;
+					right: 37px;
+				}
+			}
+		}
+.feedback-section{
+	padding: rem(20px 40px);
+/*	@media #{$breakpoint-desktop-max}{
+		padding: 1.25rem 0;
+	    width: 67%;
+	    margin: auto;
+	    position: absolute;
+	    left: 28%;
+	}*/
+	@media #{$breakpoint-tablet-min}{
+		padding: rem(20px 0);
+		width: 74.9%;
+		margin: auto;
+		transform: translateX(1.99%);
+	}
+	@media #{$breakpoint-tablet}{
+		padding: rem(20px 0);
+		width: 74.9%;
+		margin: auto;
+		transform: translateX(1.99%);
+	}
+	.feedback-section-one{
+		@media #{$breakpoint-tablet}{
+			display: flex;
+    		flex-direction: row;
+    		justify-content: space-evenly;
+		}
+		display: block;
+		.form-check-inline{
+			margin-right: 1.5rem;
+			@media #{$breakpoint-tablet}{
+				margin-right: 0;
+			}
+			.form-check-label{	
+			}
+		}
+	}
+	.feedback-section-two{
+		margin: rem(20px 0);	
+		.form-group{
+			margin-bottom: 2rem;
+			padding-right: rem(10px);
+			label{
+				@include label-style-text;
+			}
+			.form-control{
+				border-radius: 0;
+			}
+			.form-textarea::placeholder{
+				@include form-placeholder;
+			}
+			select{
+				@include form-select-options;
+			}
+		}
+	}
+}

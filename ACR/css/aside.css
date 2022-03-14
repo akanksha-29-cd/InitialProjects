@@ -1,0 +1,106 @@
+aside {
+  height: 100vh;
+  border-right: 1px solid #E2E2E2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  padding: 0 1.25rem;
+  z-index: 3;
+  -webkit-transform: none;
+  transform: none;
+  transition: transform 300ms linear;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  @media (max-width: 767px) {
+    aside {
+      transform: translateX(-100%);
+      transition: transform 300ms linear;
+      /*display: none;*/ } }
+  aside .aside_logo {
+    /*text-align: center;*/
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    height: 150px; }
+    aside .aside_logo img {
+      /*border-radius: 50%;*/
+      /*border: 1px solid #000;*/
+      box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.3), inset 0 5px 5px rgba(0, 0, 0, 0.5);
+      transition: 0.3s; }
+  aside .user-short-description {
+    transition: 0.3s; }
+    aside .user-short-description h3 {
+      font-weight: bold;
+      font-size: 1.125rem;
+      text-transform: uppercase;
+      color: #000000;
+      margin-bottom: 0;
+      letter-spacing: 0.5px; }
+    aside .user-short-description p {
+      font-weight: normal;
+      font-size: 0.875rem;
+      color: #878787;
+      margin: 0.9375rem 0; }
+    aside .user-short-description .button a {
+      color: #fff; }
+      aside .user-short-description .button a:link {
+        /*background: $aside-button-link;*/
+        border-radius: 20px;
+        padding: 0.625rem 2.5rem;
+        color: #fff;
+        font-size: 1.125rem;
+        text-decoration: none;
+        transition: color .8s;
+        background-image: linear-gradient(to right, #12D8FA -19%, #1FA2FF 100%); }
+        aside .user-short-description .button a:link:hover {
+          text-decoration: none;
+          cursor: pointer;
+          color: #fff;
+          /*background-position: right center;*/ }
+  aside .user-short-description-two {
+    transition: 0.3s;
+    margin: 1.25rem 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; }
+    aside .user-short-description-two .joining-date,
+    aside .user-short-description-two .experience-in,
+    aside .user-short-description-two .experience-out {
+      display: flex;
+      flex-direction: column;
+      padding: 0.625rem;
+      font-size: 0.875rem;
+      text-align: center;
+      border-right: 1px solid #E2E2E2; }
+      aside .user-short-description-two .joining-date:last-child,
+      aside .user-short-description-two .experience-in:last-child,
+      aside .user-short-description-two .experience-out:last-child {
+        border-right: none; }
+      aside .user-short-description-two .joining-date p,
+      aside .user-short-description-two .experience-in p,
+      aside .user-short-description-two .experience-out p {
+        font-size: 0.875rem;
+        font-weight: bold;
+        margin-bottom: 0;
+        padding: 0 0.9375rem; }
+        aside .user-short-description-two .joining-date p:first-child,
+        aside .user-short-description-two .experience-in p:first-child,
+        aside .user-short-description-two .experience-out p:first-child {
+          padding-right: 0; }
+        aside .user-short-description-two .joining-date p span,
+        aside .user-short-description-two .experience-in p span,
+        aside .user-short-description-two .experience-out p span {
+          display: block;
+          font-weight: normal;
+          padding-top: 0.9375rem; }
+  aside .footer-logo {
+    transition: 0.3s;
+    position: absolute;
+    bottom: 4%;
+    left: 35%; }
+    aside .footer-logo img {
+      max-width: 95px;
+      height: auto; }

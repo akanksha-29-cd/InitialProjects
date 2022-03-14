@@ -1,0 +1,107 @@
+
+
+@mixin form-group-element{
+	label{
+		@include label-style-text;
+		}
+		.form-control{
+			border-radius: 0;
+		}
+		.form-textarea::placeholder{
+			@include form-placeholder;
+		}
+}
+@mixin main-header-size{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: rem(15px 40px);
+	border-bottom: 1px solid #E2E2E2;
+}
+@mixin heading-3{
+	font-weight: bold;
+	font-size: rem(18px);
+	text-transform: uppercase;
+	color: #000000;
+	margin-bottom: 0;
+	letter-spacing: 0.5px;
+}
+@mixin label-style-text{
+	font-size: rem(14px);
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #000;
+	margin-bottom: rem(15px);
+	letter-spacing: 0.5px;
+}
+@mixin form-placeholder{
+	font-size: rem(12px);
+	padding: rem(10px);
+	color: #000;
+}
+@mixin form-select-options{
+	option{
+		font-size: rem(14px);
+	}
+}
+@mixin media-icons-styling{
+	position: relative;
+	.succes-icon{
+		img{
+			border: none;
+		}
+	}
+	.failer-icon{
+		position: absolute;
+		top: 0;
+		display: none;
+		img{
+			border: none;
+		}
+		@media #{$breakpoint-tablet}{
+			top: 20px;
+		}
+	}	
+}
+
+@mixin media-body-info{
+	.media-body-info{
+		padding-bottom: 10px;
+		@media #{$breakpoint-mobile} {
+			padding-bottom: 0;
+			p{
+				display: block;
+				margin-bottom: 20px;
+			}
+		}
+		@media #{$breakpoint-tablet}{
+			padding-bottom: 0;
+		}
+		&:last-child{
+			p{
+				span{ 
+					font-weight: bold;
+					text-transform: capitalize;
+				}
+			}	
+		}
+		p{
+			font-size: rem(14px);
+			text-transform: uppercase;
+			color: #333333;
+			letter-spacing: 0.5px;
+			@media #{$breakpoint-tablet}{
+				margin-bottom: 17px;
+			}
+			span{
+				padding: 0 5px;
+			}
+		}
+	}
+}
+@mixin icons-styling{
+	max-width: 70px;
+	height: auto;
+	border: 1px solid #000;
+	border-radius: 50%;
+}

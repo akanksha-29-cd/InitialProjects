@@ -1,0 +1,37 @@
+.form-buttons{
+	.btn{
+		width: 100%;
+		max-width: 20%;
+		margin-right: rem(20px);
+		color: #fff;
+		border-radius: 45px;
+		box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+		letter-spacing: 0.7;
+		transition: all 0.3s ease 0s;
+		&:hover{
+			color: #fff;
+			transform: translateY(-2px);
+		}
+		&:active{
+			transform: translateY(2px);
+		}
+		@media #{$breakpoint-tablet-max}{
+			width: 100%;
+			max-width: 35%;
+		}
+	}
+	.btn-save{
+		background-color: $pale-green-btn;
+		&:hover{
+			background-color: #2EE59D;
+		    box-shadow: 0px 10px 10px rgba(46, 229, 157, 0.4);
+		}
+	}
+	.btn-submit{
+		background-color: $blue-btn;
+		&:hover{
+			background-color: #1FA2FF;
+			box-shadow: 0px 10px 10px rgba(46, 229, 157, 0.4);
+		}
+	}
+}
