@@ -1,0 +1,897 @@
+<header class="site_header">
+  <h1 class="site_header-title">Capacity Planning</h1>
+  <hr class="site_header-line" />
+</header>
+<ng-container
+  *ngIf="{
+    regionCapacity: regionCapacities$ | async,
+    businessUnits: businessUnits$ | async,
+    projects: projects$ | async,
+    resourceRoles: resourceRoles$ | async,
+    resources: resources$ | async,
+    teams: teams$ | async
+  } as asyncData"
+>
+  <das-day-allocation-filter
+    [businessUnits]="asyncData.businessUnits"
+    [projects]="asyncData.projects"
+    [resourceRoles]="asyncData.resourceRoles"
+    [resources]="asyncData.resources"
+    [teams]="asyncData.teams"
+    (filter)="onFilter($event)"
+    (reset)="onReset($event)"
+  >
+  </das-day-allocation-filter>
+
+  <p-table
+    [columns]="capacityColumns"
+    [value]="fileteredCapacityValues"
+    [scrollable]="true"
+    class="w-100"
+    styleClass="p-datatable-gridlines"
+    editMode="row"
+    dataKey="id"
+    [paginator]="true"
+    [rows]="5"
+    [rowsPerPageOptions]="[5, 10, 25, 50]"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  >
+    <ng-template pTemplate="colgroup" let-columns>
+      <colgroup>
+        <col style="width: 60px" />
+        <col style="width: 100px" />
+        <col style="width: 150px" />
+        <col style="width: 150px" />
+        <col style="width: 150px" />
+        <col style="width: 150px" />
+        <col style="width: 150px" />
+        <col style="width: 45px" />
+        <col style="width: 45px" />
+        <col style="width: 45px" />
+        <col style="width: 45px" />
+        <col style="width: 45px" />
+        <col style="width: 45px" />
+        <col style="width: 45px" />
+        <col style="width: 45px" />
+        <col style="width: 45px" />
+        <col style="width: 45px" />
+        <col style="width: 45px" />
+        <col style="width: 45px" />
+        <col style="width: 40px" />
+        <col style="width: 40px" />
+        <col style="width: 40px" />
+        <col style="width: 40px" />
+        <col style="width: 40px" />
+      </colgroup>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th rowspan="4" colspan="7" class="working-days text-center">
+          <div class="header-content">
+            <span class="px-2"
+              >No. of Working Days in a Month for year 2021:
+            </span>
+          </div>
+          <div class="color-code">
+            <span><i class="fa fa-stop fa-clr-one"></i> INDEC Team</span>
+            <span><i class="fa fa-stop fa-clr-two"></i> Paris Team</span>
+            <span>
+              <i class="fa fa-stop"></i>
+              Consumed Capacity
+            </span>
+          </div>
+        </th>
+      </tr>
+
+      <tr *ngIf="asyncData.regionCapacity">
+        <th colspan="1" class="p-th-bg_one">
+          {{ asyncData.regionCapacity[0].capacities[12].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_one">
+          {{ asyncData.regionCapacity[0].capacities[13].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_one">
+          {{ asyncData.regionCapacity[0].capacities[14].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_one">
+          {{ asyncData.regionCapacity[0].capacities[15].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_one">
+          {{ asyncData.regionCapacity[0].capacities[16].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_one">
+          {{ asyncData.regionCapacity[0].capacities[17].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_one">
+          {{ asyncData.regionCapacity[0].capacities[18].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_one">
+          {{ asyncData.regionCapacity[0].capacities[19].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_one">
+          {{ asyncData.regionCapacity[0].capacities[20].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_one">
+          {{ asyncData.regionCapacity[0].capacities[21].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_one">
+          {{ asyncData.regionCapacity[0].capacities[22].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_one">
+          {{ asyncData.regionCapacity[0].capacities[23].capacity }}
+        </th>
+      </tr>
+      <tr *ngIf="asyncData.regionCapacity">
+        <th colspan="1" class="p-th-bg_two">
+          {{ asyncData.regionCapacity[0].capacities[0].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_two">
+          {{ asyncData.regionCapacity[0].capacities[1].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_two">
+          {{ asyncData.regionCapacity[0].capacities[2].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_two">
+          {{ asyncData.regionCapacity[0].capacities[3].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_two">
+          {{ asyncData.regionCapacity[0].capacities[4].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_two">
+          {{ asyncData.regionCapacity[0].capacities[5].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_two">
+          {{ asyncData.regionCapacity[0].capacities[6].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_two">
+          {{ asyncData.regionCapacity[0].capacities[7].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_two">
+          {{ asyncData.regionCapacity[0].capacities[8].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_two">
+          {{ asyncData.regionCapacity[0].capacities[9].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_two">
+          {{ asyncData.regionCapacity[0].capacities[10].capacity }}
+        </th>
+        <th colspan="1" class="p-th-bg_two">
+          {{ asyncData.regionCapacity[0].capacities[11].capacity }}
+        </th>
+      </tr>
+      <tr *ngIf="overAllResourceCapacity">
+        <th
+          colspan="1"
+          class="p-th-bg_three"
+          *ngFor="let value of overAllResourceCapacity.capacities"
+        >
+          {{ value.capacity }}
+        </th>
+      </tr>
+      <tr>
+        <th class="table-header-border" *ngFor="let column of columns">
+          {{ column }}
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template
+      pTemplate="body"
+      let-data
+      let-editing="editing"
+      let-ri="rowIndex"
+    >
+      <tr [pEditableRow]="data" id="row_{{ ri }}">
+        <td class="text-center align-middle">
+          <p-checkbox
+            name="row_check_{{ ri }}"
+            id="row_check_{{ ri }}"
+            binary="true"
+            [disabled]="!!data.isNew || !!data.isupdated || isRowEditMode"
+            (onChange)="delete(ri, $event)"
+          ></p-checkbox>
+        </td>
+        <td>
+          <button
+            *ngIf="!editing && fileteredCapacityValues.length !== ri"
+            pButton
+            pRipple
+            type="button"
+            pInitEditableRow
+            icon="pi pi-pencil"
+            [disabled]="!!data.isDeleted"
+            (click)="rowEditInit(data, asyncData.projects, asyncData.resources)"
+            class="p-button-rounded p-button-text"
+          ></button>
+          <button
+            *ngIf="editing"
+            pButton
+            pRipple
+            type="button"
+            pSaveEditableRow
+            icon="pi pi-check"
+            (click)="
+              rowEditSave(
+                data,
+                ri,
+                asyncData.businessUnits,
+                asyncData.projects,
+                asyncData.resourceRoles,
+                asyncData.resources,
+                asyncData.teams
+              )
+            "
+            class="p-button-rounded p-button-text p-button-success p-mr-2"
+          ></button>
+          <button
+            *ngIf="editing"
+            pButton
+            pRipple
+            type="button"
+            pCancelEditableRow
+            icon="pi pi-times"
+            (click)="rowEditCancel(data, ri)"
+            class="p-button-rounded p-button-text p-button-danger"
+          ></button>
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-minus-circle"
+            class="p-button-rounded p-button-text p-button-warning"
+            *ngIf="data.isNew"
+            (click)="removeRow(ri)"
+          ></button>
+        </td>
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-dropdown
+                [(ngModel)]="data.businessUnitId"
+                class="w-100 table-dropdown"
+                [options]="asyncData.businessUnits | dropdownToValuePipe"
+                placeholder="Select"
+                [filter]="true"
+                appendTo="body"
+                (onChange)="
+                  onBusinessUnitChange(
+                    data.businessUnitId,
+                    asyncData.projects,
+                    ri
+                  )
+                "
+                required
+              ></p-dropdown>
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ data.businessUnit }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-dropdown
+                [(ngModel)]="data.projectId"
+                class="w-100 table-dropdown"
+                [options]="projectsByBusinessUnits | dropdownToValuePipe"
+                placeholder="Select"
+                [filter]="true"
+                appendTo="body"
+                (onChange)="onProjectChange(data.projectId, ri)"
+                required
+              ></p-dropdown>
+            </ng-template>
+            <ng-template pTemplate="output">
+              <p
+                pTooltip="{{ data.otp }}
+              {{ data.projectType }}"
+                tooltipPosition="bottom"
+              >
+                {{ data.projectName }}
+              </p>
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-dropdown
+                [(ngModel)]="data.teamId"
+                class="w-100 table-dropdown"
+                [options]="asyncData.teams | dropdownToValuePipe"
+                placeholder="Select"
+                [filter]="true"
+                appendTo="body"
+                (onChange)="onTeamChange(data.teamId, asyncData.resources, ri)"
+                required
+              ></p-dropdown>
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ data.teamName }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-dropdown
+                [(ngModel)]="data.roleId"
+                class="w-100 table-dropdown"
+                [options]="roleByTeam | dropdownToValuePipe"
+                placeholder="Select"
+                [filter]="true"
+                appendTo="body"
+                (onChange)="onRoleChange(data.roleId, asyncData.resources, ri)"
+                required
+              ></p-dropdown>
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ data.roleName }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-dropdown
+                [(ngModel)]="data.resourceId"
+                class="w-100 table-dropdown"
+                [options]="resourceByRole | dropdownToValuePipe"
+                placeholder="Select"
+                [filter]="true"
+                appendTo="body"
+                (onChange)="onResourceChange(data.resourceId, ri)"
+                required
+              ></p-dropdown>
+            </ng-template>
+            <ng-template pTemplate="output">
+              <p pTooltip="{{ data.teamType }}" tooltipPosition="bottom">
+                {{ data.resourceName }}
+              </p></ng-template
+            >
+          </p-cellEditor>
+        </td>
+        <td
+          [ngClass]="
+            validateMonthlyResourceCapacity(
+              data.resourceId,
+              asyncData.regionCapacity,
+              0
+            )
+          "
+        >
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                pInputText
+                type="text"
+                class="w-100 text-center"
+                [(ngModel)]="data.capacities[0].capacity"
+                [disabled]="
+                  !(
+                    data.businessUnitId.length > 0 &&
+                    data.projectId.length > 0 &&
+                    data.roleId.length > 0 &&
+                    data.resourceId.length > 0
+                  )
+                "
+                (keyup)="
+                  onValidateMonthlyResourceCapacity(
+                    data.resourceId,
+                    asyncData.regionCapacity,
+                    0
+                  )
+                "
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '$1');"
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ data.capacities[0].capacity }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td
+          [ngClass]="
+            validateMonthlyResourceCapacity(
+              data.resourceId,
+              asyncData.regionCapacity,
+              1
+            )
+          "
+        >
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                pInputText
+                type="text"
+                class="w-100 text-center"
+                [(ngModel)]="data.capacities[1].capacity"
+                [disabled]="
+                  !(
+                    data.businessUnitId.length > 0 &&
+                    data.projectId.length > 0 &&
+                    data.roleId.length > 0 &&
+                    data.resourceId.length > 0
+                  )
+                "
+                (keyup)="
+                  onValidateMonthlyResourceCapacity(
+                    data.resourceId,
+                    asyncData.regionCapacity,
+                    1
+                  )
+                "
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '$1');"
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ data.capacities[1].capacity }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td
+          [ngClass]="
+            validateMonthlyResourceCapacity(
+              data.resourceId,
+              asyncData.regionCapacity,
+              2
+            )
+          "
+        >
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                pInputText
+                type="text"
+                class="w-100 text-center"
+                [(ngModel)]="data.capacities[2].capacity"
+                [disabled]="
+                  !(
+                    data.businessUnitId.length > 0 &&
+                    data.projectId.length > 0 &&
+                    data.roleId.length > 0 &&
+                    data.resourceId.length > 0
+                  )
+                "
+                (keyup)="
+                  onValidateMonthlyResourceCapacity(
+                    data.resourceId,
+                    asyncData.regionCapacity,
+                    2
+                  )
+                "
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '$1');"
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ data.capacities[2].capacity }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td
+          [ngClass]="
+            validateMonthlyResourceCapacity(
+              data.resourceId,
+              asyncData.regionCapacity,
+              3
+            )
+          "
+        >
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                pInputText
+                type="text"
+                class="w-100 text-center"
+                [(ngModel)]="data.capacities[3].capacity"
+                [disabled]="
+                  !(
+                    data.businessUnitId.length > 0 &&
+                    data.projectId.length > 0 &&
+                    data.roleId.length > 0 &&
+                    data.resourceId.length > 0
+                  )
+                "
+                (keyup)="
+                  onValidateMonthlyResourceCapacity(
+                    data.resourceId,
+                    asyncData.regionCapacity,
+                    3
+                  )
+                "
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '$1');"
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ data.capacities[3].capacity }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td
+          [ngClass]="
+            validateMonthlyResourceCapacity(
+              data.resourceId,
+              asyncData.regionCapacity,
+              4
+            )
+          "
+        >
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                pInputText
+                type="text"
+                class="w-100 text-center"
+                [(ngModel)]="data.capacities[4].capacity"
+                [disabled]="
+                  !(
+                    data.businessUnitId.length > 0 &&
+                    data.projectId.length > 0 &&
+                    data.roleId.length > 0 &&
+                    data.resourceId.length > 0
+                  )
+                "
+                (keyup)="
+                  onValidateMonthlyResourceCapacity(
+                    data.resourceId,
+                    asyncData.regionCapacity,
+                    4
+                  )
+                "
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '$1');"
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ data.capacities[4].capacity }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td
+          [ngClass]="
+            validateMonthlyResourceCapacity(
+              data.resourceId,
+              asyncData.regionCapacity,
+              5
+            )
+          "
+        >
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                pInputText
+                type="text"
+                class="w-100 text-center"
+                [(ngModel)]="data.capacities[5].capacity"
+                [disabled]="
+                  !(
+                    data.businessUnitId.length > 0 &&
+                    data.projectId.length > 0 &&
+                    data.roleId.length > 0 &&
+                    data.resourceId.length > 0
+                  )
+                "
+                (keyup)="
+                  onValidateMonthlyResourceCapacity(
+                    data.resourceId,
+                    asyncData.regionCapacity,
+                    5
+                  )
+                "
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '$1');"
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ data.capacities[5].capacity }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td
+          [ngClass]="
+            validateMonthlyResourceCapacity(
+              data.resourceId,
+              asyncData.regionCapacity,
+              6
+            )
+          "
+        >
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                pInputText
+                type="text"
+                class="w-100 text-center"
+                [(ngModel)]="data.capacities[6].capacity"
+                [disabled]="
+                  !(
+                    data.businessUnitId.length > 0 &&
+                    data.projectId.length > 0 &&
+                    data.roleId.length > 0 &&
+                    data.resourceId.length > 0
+                  )
+                "
+                (keyup)="
+                  onValidateMonthlyResourceCapacity(
+                    data.resourceId,
+                    asyncData.regionCapacity,
+                    6
+                  )
+                "
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '$1');"
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ data.capacities[6].capacity }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td
+          [ngClass]="
+            validateMonthlyResourceCapacity(
+              data.resourceId,
+              asyncData.regionCapacity,
+              7
+            )
+          "
+        >
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                pInputText
+                type="text"
+                class="w-100 text-center"
+                [(ngModel)]="data.capacities[7].capacity"
+                [disabled]="
+                  !(
+                    data.businessUnitId.length > 0 &&
+                    data.projectId.length > 0 &&
+                    data.roleId.length > 0 &&
+                    data.resourceId.length > 0
+                  )
+                "
+                (keyup)="
+                  onValidateMonthlyResourceCapacity(
+                    data.resourceId,
+                    asyncData.regionCapacity,
+                    7
+                  )
+                "
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '$1');"
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ data.capacities[7].capacity }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td
+          [ngClass]="
+            validateMonthlyResourceCapacity(
+              data.resourceId,
+              asyncData.regionCapacity,
+              8
+            )
+          "
+        >
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                pInputText
+                type="text"
+                class="w-100 text-center"
+                [(ngModel)]="data.capacities[8].capacity"
+                [disabled]="
+                  !(
+                    data.businessUnitId.length > 0 &&
+                    data.projectId.length > 0 &&
+                    data.roleId.length > 0 &&
+                    data.resourceId.length > 0
+                  )
+                "
+                (keyup)="
+                  onValidateMonthlyResourceCapacity(
+                    data.resourceId,
+                    asyncData.regionCapacity,
+                    8
+                  )
+                "
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '$1');"
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ data.capacities[8].capacity }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td
+          [ngClass]="
+            validateMonthlyResourceCapacity(
+              data.resourceId,
+              asyncData.regionCapacity,
+              9
+            )
+          "
+        >
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                pInputText
+                type="text"
+                class="w-100 text-center"
+                [(ngModel)]="data.capacities[9].capacity"
+                [disabled]="
+                  !(
+                    data.businessUnitId.length > 0 &&
+                    data.projectId.length > 0 &&
+                    data.roleId.length > 0 &&
+                    data.resourceId.length > 0
+                  )
+                "
+                (keyup)="
+                  onValidateMonthlyResourceCapacity(
+                    data.resourceId,
+                    asyncData.regionCapacity,
+                    9
+                  )
+                "
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '$1');"
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ data.capacities[9].capacity }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td
+          [ngClass]="
+            validateMonthlyResourceCapacity(
+              data.resourceId,
+              asyncData.regionCapacity,
+              10
+            )
+          "
+        >
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                pInputText
+                type="text"
+                class="w-100 text-center"
+                [(ngModel)]="data.capacities[10].capacity"
+                [disabled]="
+                  !(
+                    data.businessUnitId.length > 0 &&
+                    data.projectId.length > 0 &&
+                    data.roleId.length > 0 &&
+                    data.resourceId.length > 0
+                  )
+                "
+                (keyup)="
+                  onValidateMonthlyResourceCapacity(
+                    data.resourceId,
+                    asyncData.regionCapacity,
+                    10
+                  )
+                "
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '$1');"
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ data.capacities[10].capacity }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td
+          [ngClass]="
+            validateMonthlyResourceCapacity(
+              data.resourceId,
+              asyncData.regionCapacity,
+              11
+            )
+          "
+        >
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                pInputText
+                type="text"
+                class="w-100 text-center"
+                [(ngModel)]="data.capacities[11].capacity"
+                [disabled]="
+                  !(
+                    data.businessUnitId.length > 0 &&
+                    data.projectId.length > 0 &&
+                    data.roleId.length > 0 &&
+                    data.resourceId.length > 0
+                  )
+                "
+                (keyup)="
+                  onValidateMonthlyResourceCapacity(
+                    data.resourceId,
+                    asyncData.regionCapacity,
+                    11
+                  )
+                "
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '0').replace(/(\..*)\./g, '$1');"
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ data.capacities[11].capacity }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td class="text-center font-weight-bold total-value">
+          {{
+            data.capacities[0].capacity * 1 +
+              data.capacities[1].capacity * 1 +
+              data.capacities[2].capacity * 1 +
+              data.capacities[3].capacity * 1 +
+              data.capacities[4].capacity * 1 +
+              data.capacities[5].capacity * 1 +
+              data.capacities[6].capacity * 1 +
+              data.capacities[7].capacity * 1 +
+              data.capacities[8].capacity * 1 +
+              data.capacities[9].capacity * 1 +
+              data.capacities[10].capacity * 1 +
+              data.capacities[11].capacity * 1
+          }}
+        </td>
+        <td class="table-number">
+          {{
+            data.capacities[0].capacity * 1 +
+              data.capacities[1].capacity * 1 +
+              data.capacities[2].capacity * 1
+          }}
+        </td>
+        <td class="table-number">
+          {{
+            data.capacities[3].capacity * 1 +
+              data.capacities[4].capacity * 1 +
+              data.capacities[5].capacity * 1
+          }}
+        </td>
+        <td class="table-number">
+          {{
+            data.capacities[6].capacity * 1 +
+              data.capacities[7].capacity * 1 +
+              data.capacities[8].capacity * 1
+          }}
+        </td>
+        <td class="table-number">
+          {{
+            data.capacities[9].capacity * 1 +
+              data.capacities[10].capacity * 1 +
+              data.capacities[11].capacity * 1
+          }}
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="paginatorleft">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-plus-circle"
+        class="p-button-rounded p-button-text p-button-info"
+        (click)="addNewRow()"
+      ></button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright"> </ng-template>
+  </p-table>
+  <br />
+  <div class="col-md-12" style="text-align: right">
+    <button
+      type="button"
+      pButton
+      class="btn btn-secondary"
+      pRipple
+      [disabled]="isRowEditMode"
+      label="Process Data"
+      (click)="processRecord(asyncData.regionCapacity)"
+    >
+      <span class="fa fa-spinner pr-1" aria-hidden="true"></span>
+    </button>
+  </div>
+</ng-container>

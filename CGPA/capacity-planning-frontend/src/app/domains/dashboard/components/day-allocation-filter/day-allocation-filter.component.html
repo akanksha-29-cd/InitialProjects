@@ -1,0 +1,111 @@
+<div class="form-filter">
+  <form #form="ngForm">
+    <div class="form-group row">
+      <div class="col">
+        <label for="BU"> Business Units </label>
+        <div>
+          <p-dropdown
+            class="w-100"
+            [options]="businessUnits | dropdownToValuePipe"
+            placeholder="Select"
+            [filter]="true"
+            [showClear]="true"
+            appendTo="body"
+            name="buSearchField"
+            id="buSearchField"
+            (onChange)="onBusinessUnitChange($event)"
+            ngModel
+          ></p-dropdown>
+        </div>
+      </div>
+      <div class="col">
+        <label for="projectName">Project Name</label>
+        <div>
+          <p-dropdown
+            class="w-100"
+            [options]="filteredProjects | dropdownToValuePipe"
+            placeholder="Select"
+            [filter]="true"
+            [showClear]="true"
+            name="projectSearchField"
+            id="projectSearchField"
+            ngModel
+            appendTo="body"
+          ></p-dropdown>
+        </div>
+      </div>
+      <div class="col">
+        <label for="team">Team</label>
+        <div>
+          <p-dropdown
+            class="w-100"
+            [options]="teams | dropdownToValuePipe"
+            placeholder="Select"
+            [filter]="true"
+            [showClear]="true"
+            name="teamSearchField"
+            id="teamSearchField"
+            (onChange)="onTeamChange(form.value)"
+            ngModel
+            appendTo="body"
+          ></p-dropdown>
+        </div>
+      </div>
+      <div class="col">
+        <label for="resourceRole">Resource Role</label>
+        <div>
+          <p-dropdown
+            class="w-100"
+            [options]="filteredResourceRoles | dropdownToValuePipe"
+            placeholder="Select"
+            [filter]="true"
+            [showClear]="true"
+            (onChange)="onResourceRoleChange(form.value)"
+            name="roleSearchField"
+            id="roleSearchField"
+            ngModel
+            appendTo="body"
+          ></p-dropdown>
+        </div>
+      </div>
+      <div class="col">
+        <label for="resourceName"> Resource Name </label>
+        <div>
+          <p-dropdown
+            class="w-100"
+            [options]="filteredResources | dropdownToValuePipe"
+            placeholder="Select"
+            [filter]="true"
+            [showClear]="true"
+            name="resourceSearchField"
+            id="resourceSearchField"
+            ngModel
+            appendTo="body"
+          ></p-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="form-row d-flex flex-row-reverse">
+      <div class="col-md-2 text-right">
+        <div class="searchIconDiv">
+          <button
+            type="button"
+            class="btn btn-success"
+            (click)="search(form.value)"
+            title="Search"
+          >
+            <span class="fa fa-search fa-lg" aria-hidden="true"></span>
+          </button>
+        </div>
+        <button
+          type="reset"
+          class="btn btn-warning"
+          title="Reset"
+          (click)="resetFilter(form)"
+        >
+          <span class="fa fa-refresh fa-lg" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

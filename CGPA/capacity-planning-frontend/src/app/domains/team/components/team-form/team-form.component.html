@@ -1,0 +1,73 @@
+<p-dialog
+  [(visible)]="teamDialogue"
+  [style]="{ width: '550px' }"
+  header="{{ formTitle }}"
+  [modal]="true"
+  (onHide)="hideDialogue()"
+  styleClass="p-fluid"
+>
+  <ng-template pTemplate="content">
+    <form
+      #form="ngForm"
+      (ngSubmit)="saveTeam(form.value)"
+      novalidate
+    >
+      <div class="search_form">
+
+        <div class="p-field form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <label for="teamName" class="col-form-label">Name</label>
+            </div>
+            <div class="col-md-8">
+              <input
+                type="text"
+                pInputText
+                id="teamName"
+                name="teamName"
+                [(ngModel)]="team.name"
+                autofocus
+                ngModel
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <!-- <div class="p-field form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <label for="teamActive" class="col-form-label">Active</label>
+            </div>
+            <div class="col-md-8">
+              <input
+                type="checkbox"
+                id="teamActive"
+                name="teamActive"
+                [(ngModel)]="team.active"
+                ngModel
+                [disabled]="team.id==''"
+              />
+            </div>
+          </div>
+        </div> -->
+
+      </div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <button type="submit" pButton pRipple label="Save" [disabled]="!form.valid"></button>
+        </div>
+        <div class="col-md-4">
+          <button
+            type="button"
+            pButton
+            pRipple
+            label="Cancel"
+            class="p-button-outlined p-button-danger"
+            (click)="hideDialogue()"
+          ></button>
+        </div>
+      </div>
+    </form>
+  </ng-template>
+</p-dialog>

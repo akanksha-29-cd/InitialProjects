@@ -1,0 +1,102 @@
+@import "../../../../../scss/common.scss";
+
+.detail-heading{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  vertical-align: middle;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #E5E5E5;
+  padding-bottom: 10px; 
+}
+.month-allocation-table{
+  margin: 10px 0;
+}
+.working-days th{
+  padding: 0.45rem;
+
+}
+th.p-table-header {
+  text-align: center !important;
+  vertical-align: middle;
+}
+.working-days{
+  position: relative;
+  .header-content{
+    position: absolute;
+    right: 200px;
+    span{
+      font-size: px2rem(12);
+    }
+  }
+  .color-code{
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    text-align: left;   
+    span{
+      display: block;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+th.p-th-bg_one {
+  background-color: #02cdef !important;
+}
+
+th.p-th-bg_two {
+  background-color: #7bafd4 !important;
+}
+
+th.p-th-bg_three {
+  // background-color: chartreuse !important;
+  font-weight: 700 !important;
+}
+.fa-clr-one {
+  color: #02cdef;
+}
+.light-blue{
+  color: #02cdef;
+}
+.dark-blue{
+  color: #7bafd4;
+}
+.fa-clr-two {
+  color: #7bafd4;
+}
+
+.fa-clr-three {
+  color: chartreuse;
+}
+
+.fa-spinner {
+  :before {
+    font-family: FontAwesome;
+    content: "\f110";
+  }
+}
+.table-number{
+  text-align: center !important;
+  background: rgba(43, 89, 127, 0.1);
+}
+.total-value{
+  background: rgba(43, 89, 127, 0.2);
+}
+.exceeded-capacity {
+  background-color: #B00020;
+  color: white;
+  font-weight: bold;
+}
+
+.fewer-capacity {
+  // background-color: #17b65c;
+  color: white;
+  font-weight: bold;
+}
+.fa-stop{
+  :before{
+    font-family: FontAwesome;
+    content: "\f04d";
+  }
+}

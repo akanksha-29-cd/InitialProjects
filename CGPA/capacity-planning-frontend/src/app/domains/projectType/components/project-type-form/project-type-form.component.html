@@ -1,0 +1,57 @@
+<p-dialog
+  [(visible)]="projectTypeDialogue"
+  [style]="{ width: '550px' }"
+  header="{{ formTitle }}"
+  [modal]="true"
+  (onHide)="hideDialogue()"
+  styleClass="p-fluid"
+>
+  <ng-template pTemplate="content">
+    <form
+      #form="ngForm"
+      (ngSubmit)="saveProjectType(form.value)"
+      novalidate
+    >
+      <div class="search_form">
+
+        <div class="p-field form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <label for="name" class="col-form-label">Name</label>
+            </div>
+            <div class="col-md-8">
+              <input
+                type="text"
+                pInputText
+                id="name"
+                name="name"
+                [(ngModel)]="projectType.name"
+                autofocus
+                ngModel
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <button type="submit" pButton pRipple label="Save" [disabled]="!form.valid"></button>
+        </div>
+        <div class="col-md-4">
+          <button
+            type="button"
+            pButton
+            pRipple
+            label="Cancel"
+            class="p-button-outlined p-button-danger"
+            (click)="hideDialogue()"
+          ></button>
+        </div>
+      </div>
+    </form>
+  </ng-template>
+</p-dialog>

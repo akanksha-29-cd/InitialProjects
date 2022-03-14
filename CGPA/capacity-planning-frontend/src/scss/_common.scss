@@ -1,0 +1,59 @@
+@import "utilities/variables";
+@import "utilities/function";
+@import "utilities/mixins";
+@import "utilities/typography";
+@import "utilities/button";
+@import "utilities/validation";
+@import "utilities/table";
+.site_header {
+  margin: 0 0 px2rem(30) 0;
+
+  &-line {
+    margin-top: px2rem(30);
+  }
+}
+.search_form {
+  margin: px2rem(20) 0 px2rem(30) 0;
+  label {
+    font-family: $title-font;
+    font-size: px2rem(14);
+    font-weight: 400;
+    color: $black;
+    margin-bottom: px2rem(8);
+  }
+  &-input {
+    border: 1px solid $light-gray;
+    border-radius: 0;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+    font-size: px2rem(14);
+    color: $black;
+    height: calc(1.9em + 0.75rem + 2px);
+  }
+}
+
+
+
+/*Side bar toggle*/
+.active-sidebar {
+  min-width: 132px !important;
+  max-width: 132px !important;
+  text-align: center !important;
+  @include lg-max {
+    min-width: 132px !important;
+    max-width: 132px !important;
+    text-align: center !important;
+  }
+  .site_sidebar-header_p {
+    display: none;
+  }
+  .site_sidebar-header_team {
+    display: none;
+  }
+  .site_sidebar-main_link-title {
+    display: none;
+  }
+  .site_sidebar-main_icon {
+    font-size: 2em;
+  }
+}
+/*Side bar toggle*/

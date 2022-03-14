@@ -1,0 +1,79 @@
+<header class="site_header">
+  <h1 class="site_header-title">Projects</h1>
+  <hr class="site_header-line" />
+</header>
+<div
+  class="card"
+  *ngIf="{
+    projects: projects$ | async
+  } as data"
+>
+  <div class="row">
+    <div class="col-md-12">
+      <button
+        pButton
+        pRipple
+        label="New"
+        icon="pi pi-plus"
+        class="p-button-success p-mr-2 m-2"
+        (click)="openDialogue()"
+      ></button>
+    </div>
+  </div>
+  <p-table #dt1 [value]="data.projects" styleClass="p-datatable-gridlines" [globalFilterFields]="['name','businessUnit.name','type?.name','otp']"
+  [paginator]="true"
+    [rows]="10"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex p-ai-center p-jc-between">
+        <h5 class="p-m-0">Manage Projects</h5>
+        <span class="p-input-icon-left p-ml-auto">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
+      </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="businessUnit.name">Business Unit<p-sortIcon field="businessUnit.name"></p-sortIcon></th>
+        <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon></th>
+        <th pSortableColumn="type.name">Type<p-sortIcon field="type.name"></p-sortIcon></th>
+        <th>OTP</th>
+        <th>Edit</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-project>
+      <tr>
+        <td>{{ project.businessUnit?.name }}</td>
+        <td>{{ project.name }}</td>
+        <td>{{ project.type?.name }}</td>
+        <td>{{ project.otp }}</td>
+        <td>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-success p-mr-2"
+            (click)="editProject(project)"
+          ></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-warning"
+            (click)="deleteProject(project.id)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<pro-project-form
+  [formTitle]="formTitle"
+  [project]="project"
+  [projectDialogue]="projectDialogue"
+  (diaologue)="onProjectDialogue($event)"
+  (successOperation)="onsuccessOperation($event)"
+></pro-project-form>

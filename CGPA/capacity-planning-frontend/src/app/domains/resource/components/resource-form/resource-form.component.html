@@ -1,0 +1,129 @@
+<p-dialog
+  [(visible)]="userDialogue"
+  [style]="{ width: '550px' }"
+  [modal]="true"
+  (onHide)="hideDialogue()"
+  styleClass="p-fluid"
+>
+  <p-header>{{ formTitle }}</p-header>
+  <ng-template pTemplate="content">
+    <form #form="ngForm" (ngSubmit)="saveResource(form.value)" novalidate>
+      <div class="search_form">
+        <div class="p-field form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <label for="resourceId" class="col-form-label">SG Id</label>
+            </div>
+            <div class="col-md-8">
+              <input
+                type="text"
+                name="resourceId"
+                id="resourceId"
+                [(ngModel)]="resourceVal.sgId"
+                pInputText
+                required
+                autofocus
+                class="form-control"
+                ngModel
+              />
+            </div>
+          </div>
+        </div>
+        <div class="p-field form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <label for="resourceName" class="col-form-label">Name</label>
+            </div>
+            <div class="col-md-8">
+              <input
+                type="text"
+                name="resourceName"
+                id="resourceName"
+                [(ngModel)]="resourceVal.name"
+                ngModel
+                pInputText
+                required
+                autofocus
+                class="form-control"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="p-field form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <label for="roles" class="col-form-label">Role</label>
+            </div>
+            <div class="col-md-8">
+              <p-multiSelect
+                [options]="resourceRoles | dropdownToValuePipe"
+                placeholder="Select"
+                name="roles"
+                id="roles"
+                ngModel
+                [(ngModel)]="selectedRoles"
+                required
+                appendTo="body"
+              >
+              </p-multiSelect>
+            </div>
+          </div>
+        </div>
+        <div class="p-field form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <label for="team" class="col-form-label">Team Name</label>
+            </div>
+            <div class="col-md-8">
+              <p-dropdown
+                class="w-100"
+                [options]="teams | dropdownToValuePipe"
+                placeholder="Select"
+                name="team"
+                id="team"
+                [(ngModel)]="resourceVal.team.id"
+                ngModel
+                required
+                appendTo="body"
+              ></p-dropdown>
+            </div>
+          </div>
+        </div>
+        <div class="p-field form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <label for="teamType" class="col-form-label">Team Type</label>
+            </div>
+            <div class="col-md-8">
+              <p-dropdown
+                id="teamType"
+                name="teamType"
+                placeholder="Select"
+                [options]="teamTypes | dropdownToValuePipe"
+                [(ngModel)]="resourceVal.teamType.id"
+                ngModel
+                required
+              ></p-dropdown>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <button type="submit" pButton pRipple label="Save"></button>
+        </div>
+        <div class="col-md-4">
+          <button
+            type="button"
+            pButton
+            pRipple
+            label="Cancel"
+            class="p-button-outlined p-button-danger"
+            (click)="hideDialogue()"
+          ></button>
+        </div>
+      </div>
+    </form>
+  </ng-template>
+</p-dialog>

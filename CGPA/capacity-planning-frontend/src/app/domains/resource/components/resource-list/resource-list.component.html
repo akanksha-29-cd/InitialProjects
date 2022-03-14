@@ -1,0 +1,94 @@
+<header class="site_header">
+  <h1 class="site_header-title">Resources</h1>
+  <hr class="site_header-line" />
+</header>
+<ng-container
+  *ngIf="{
+    resourceRoles: roles$ | async,
+    teams: teams$ | async,
+    resources: resource$ | async
+  } as asyncData"
+>
+  <div class="card">
+    <div class="row">
+      <div class="col-md-12">
+        <button
+          pButton
+          pRipple
+          label="New"
+          icon="pi pi-plus"
+          class="p-button-success p-mr-2 m-2"
+          (click)="openDialogue()"
+        ></button>
+      </div>
+    </div>
+
+    <p-table #dt1 [value]="asyncData.resources" styleClass="p-datatable-gridlines" [globalFilterFields]="['name','team.name','teamType.name']" [paginator]="true"
+    [paginator]="true"
+    [rows]="10"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex p-ai-center p-jc-between">
+          <h5 class="p-m-0">Manage Resources</h5>
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
+        </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="name">Resource Name<p-sortIcon field="name"></p-sortIcon></th>
+          <th>Resource Role</th>
+          <th pSortableColumn="team.name">Team Name<p-sortIcon field="team.name"></p-sortIcon></th>
+          <th pSortableColumn="teamType.name">Team Type<p-sortIcon field="teamType.name"></p-sortIcon></th>
+          <th pSortableColumn="active">Active<p-sortIcon field="teamType.name"></p-sortIcon></th>
+          <th>Edit</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-resource>
+        <tr>
+          <td>{{ resource.name }}</td>
+          <td>
+            <ng-container *ngFor ="let role of resource.roles">
+              <span>
+                {{ role.name }}
+            </span>
+            <br />
+            </ng-container>
+          </td>
+          <td>{{ resource.team.name }}</td>
+          <td>{{ resource.teamType.name }}</td>
+          <td>{{ resource.active?"Yes": ((resource.active == "" || resource.active == null)?"Yes":"No")}}</td>
+          <td>
+            <button
+              pButton
+              pRipple
+              icon="pi pi-pencil"
+              class="p-button-rounded p-button-success p-mr-2"
+              (click)="editResource(resource)"
+            ></button>
+            <button
+              pButton
+              pRipple
+              icon="pi pi-trash"
+              (click)="deleteResouce(resource)"
+              class="p-button-rounded p-button-warning"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <res-resource-form
+    [resourceRoles]="asyncData.resourceRoles"
+    [teams]="asyncData.teams"
+    [userDialogue]="userDialogue"
+    [resource] = "resource"
+    [formTitle] = "formTitle"
+    (diaologue)="onUserDialogue($event)"
+    (successOperation)="onsuccessOperation($event)"
+  ></res-resource-form>
+</ng-container>

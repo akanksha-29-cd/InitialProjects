@@ -1,0 +1,91 @@
+<header class="site_header">
+    <h1 class="site_header-title">Regions</h1>
+    <hr class="site_header-line" />
+  </header>
+  <div
+    class="card"
+    *ngIf="{
+      regions: regions$ | async
+    } as data"
+  >
+    <div class="row">
+      <div class="col-md-12">
+        <button
+          pButton
+          pRipple
+          label="New"
+          icon="pi pi-plus"
+          class="p-button-success p-mr-2 m-2"
+          (click)="openRegionDialogue()"
+        ></button>
+      </div>
+    </div>
+    <p-table #dt1 [value]="data.regions" styleClass="p-datatable-gridlines" [globalFilterFields]="['name']"
+    [paginator]="true"
+      [rows]="10"
+      [rowsPerPageOptions]="[10, 25, 50]"
+      [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex p-ai-center p-jc-between">
+          <h5 class="p-m-0">Manage Regions</h5>
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
+        </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon></th>
+          <th pSortableColumn="active">Active<p-sortIcon field="active"></p-sortIcon></th>
+          <th>Add/Edit Capacity</th>
+          <th>Edit</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-region>
+        <tr>
+          <td>{{ region.name }}</td>
+          <td>{{ region.active?"Yes" : "No" }}</td>
+          <td>
+            <button
+              pButton
+              pRipple
+              icon="pi pi-calendar-plus"
+              class="p-button-rounded p-button-success p-mr-2"
+              (click)="openRegionCapacityDialogue(region)"
+            ></button>
+          </td>
+          <td>
+            <button
+              pButton
+              pRipple
+              icon="pi pi-pencil"
+              class="p-button-rounded p-button-success p-mr-2"
+              (click)="editRegion(region)"
+            ></button>
+            <button
+              pButton
+              pRipple
+              icon="pi pi-trash"
+              class="p-button-rounded p-button-warning"
+              (click)="deleteRegion(region)"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <reg-region-form
+  [formTitle]="formTitle"
+  [region]="region"
+  [regionDialogue]="regionDialogue"
+  (diaologue)="onRegionDialogue($event)"
+  (successOperation)="onsuccessOperation($event)"
+></reg-region-form>
+<reg-region-capacity-form
+[formTitle]="formTitle"
+[region]="region"
+[regionCapacityDialogue]="regionCapacityDialogue"
+(diaologue)="onRegionCapacityDialogue($event)"
+></reg-region-capacity-form>

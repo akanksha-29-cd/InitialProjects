@@ -1,0 +1,111 @@
+<p-dialog
+  [(visible)]="userDialogue"
+  [style]="{ width: '550px' }"
+  [modal]="true"
+  (onHide)="hideDialogue()"
+  styleClass="p-fluid"
+>
+  <p-header>{{ formTitle }}</p-header>
+  <ng-template pTemplate="content">
+    <form #form="ngForm" (ngSubmit)="saveRole(form.value)" novalidate>
+      <div class="search_form">
+        <div class="p-field form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <label for="name" class="col-form-label">Role Name</label>
+            </div>
+            <div class="col-md-8">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                [(ngModel)]="roleVal.name"
+                pInputText
+                required
+                autofocus
+                class="form-control"
+                ngModel
+              />
+            </div>
+          </div>
+        </div>
+        <div class="p-field form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <label for="code" class="col-form-label">Code</label>
+            </div>
+            <div class="col-md-8">
+              <input
+                type="text"
+                name="code"
+                id="code"
+                [(ngModel)]="roleVal.code"
+                ngModel
+                pInputText
+                required
+                autofocus
+                class="form-control"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="p-field form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <label for="organization" class="col-form-label">Organization</label>
+            </div>
+            <div class="col-md-8">
+                <p-dropdown
+                class="w-100"
+                [options]="roleOrgs | dropdownToValuePipe"
+                placeholder="Select Organization"
+                name="organization"
+                id="organization"
+                [(ngModel)]="roleVal.organization.id"
+                ngModel
+                required
+                appendTo="body"
+              ></p-dropdown>              
+            </div>
+          </div>
+        </div>
+        <div class="p-field form-group">
+            <div class="row">
+              <div class="col-md-4">
+                <label for="gaspard" class="col-form-label">Gaspard</label>
+              </div>
+              <div class="col-md-8">
+                <input
+                  type="text"
+                  name="gaspard"
+                  id="gaspard"
+                  [(ngModel)]="roleVal.gaspard"
+                  ngModel
+                  pInputText
+                  required
+                  autofocus
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <button type="submit" pButton pRipple label="Save"></button>
+        </div>
+        <div class="col-md-4">
+          <button
+            type="button"
+            pButton
+            pRipple
+            label="Cancel"
+            class="p-button-outlined p-button-danger"
+            (click)="hideDialogue()"
+          ></button>
+        </div>
+      </div>
+    </form>
+  </ng-template>
+</p-dialog>
