@@ -1,0 +1,36 @@
+.main-dashboard{
+    width: 100%;
+    @include md{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .cards{
+        width: 100%;
+        text-align: center;
+        padding: 4.5rem .75rem;
+        transition: transform .2s ease;
+        &:hover{
+            transform: scale(1.02);
+            // .cards__link{
+            //     display: inline-block;
+            //     transform: scale(1);
+            //     // border: 2px solid #000;
+            // }
+        }
+        &__link{
+            text-decoration: none;
+            font: 700 2.25rem $primary-font;
+            color: #fff;
+        }
+    }
+    &__cards_new-theme{
+        background: rgba(77, 177, 179, 0.9);
+    }
+    &__cards_continue-theme{
+        background: rgba(15, 82, 153, 0.9);
+    }
+    &__cards_status-theme{
+        background: rgba(230, 100, 7, 0.9);
+    }
+}

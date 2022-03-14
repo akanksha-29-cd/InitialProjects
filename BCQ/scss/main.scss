@@ -1,0 +1,20 @@
+@charset 'utf-8';
+
+// 1. Configuration and helpers
+@import
+  'base/variables',
+  'base/base',
+  'base/reset';
+
+//utilities Styles
+@import
+  'utilities/typography',
+  'utilities/mixins',
+  'utilities/function';
+
+
+//Blocks Styles
+@import 'blocks/__blocks';
+
+//layouts Styles
+@import 'layouts/__layout';

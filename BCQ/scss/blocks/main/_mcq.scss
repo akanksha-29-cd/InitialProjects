@@ -1,0 +1,163 @@
+.extend-property{
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.75rem 1.25rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+.pagination-row{
+    margin: 0 -0.75rem 	1.25rem -0.75rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    .pagination{
+        display: flex;
+        justify-content: flex-start;
+        &__item{
+            color: #fff;
+            font-size: 1.5rem;
+            padding: 0.75rem 1.25rem;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        &__item_start{
+            background: #4DB1B3;
+        }
+        &__item_text{
+            background: #A7A7A7;
+        }
+        &__item_end{
+            background: #0F5299;
+        }
+    }
+    .points-block{
+        &__element{
+            @extend .extend-property;
+        }
+    }
+    .timer-block{
+        &__element{
+        @extend .extend-property;
+        background: #bfffdc;
+        background-image: linear-gradient(45deg, #bfffdc, #65aae2);
+        border-radius: 4px 0 0 4px;
+        padding: 0.75rem 2.25rem;
+        }
+    }
+}
+.questionary-section{
+        .question-content{
+        background-color: #E4E4E4;
+        color: #414141;
+        padding: 1.5rem 2.5rem;
+        margin-right: -0.75rem;
+        margin-left: -0.75rem;
+        margin-bottom: 1.25rem;
+            &_size{
+                font-size: 1.125rem;
+                font-weight: bold;
+            }
+        }
+        .option-list{
+        .options{
+            display: flex;
+            flex-flow: column nowrap;
+            padding: 0;
+            &__item{
+                position: relative;
+                display: block;
+                padding: 0.625rem 1rem;
+                color: #000;
+                font-size: 1.125rem;
+                text-decoration: none;
+                input[type="radio"]{
+                    margin-right: 0.625rem;
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    height: 1.5625rem;
+                    width: 1.5625rem;
+                    z-index: 2;
+                    &:checked{
+                        + {
+                            .checkmark{
+                                background-color: #E66407;
+                                z-index: 1;
+                                display: inline-block;
+                                &:after{
+                                    content: '';
+                                    background:#E7E1E1;
+                                }
+                            }
+                        }
+                    }
+                }
+                .checkmark{
+                    display: inline-block;
+                    vertical-align: middle;
+                    height: 1.5625rem;
+                    width: 	1.5625rem;
+                    background-color:#E7E1E1;
+                    border-radius: 50%;
+                    padding: 0.3125rem;
+                    margin-right: 0.625rem;
+                    position: relative;
+                    &:after{
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 9px;
+                        left: 9px;
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+        }
+        .next-qsn-btn{
+            .next-btn{
+                display: inline-block;
+                border-radius: 4px;
+                background-color: #f4511e;
+                border: none;
+                color: #FFFFFF;
+                text-align: center;
+                font-size: 	1.25rem;
+                padding: 0.625rem;
+                width: 12.625rem;
+                transition: all 0.5s;
+                cursor: pointer;  
+                margin: 5px;
+                &:hover{
+                    span{
+                        padding-right: 1.5625rem;
+                        &:after{
+                            opacity: 1;
+                            right: 0;
+                        }
+                    }
+                }
+                &:focus{
+                    outline: none;
+                    box-shadow: none;
+                }
+                span{
+                    cursor: pointer;
+                    display: inline-block;  
+                    position: relative;
+                    transition: 0.5s;
+                    &:after{
+                        content: "\f101";
+                        font-family: FontAwesome;
+                        position: absolute;
+                        opacity: 0;
+                        bottom: -0.5875rem;
+                        right: -1.25rem;
+                        transition: 0.5s;
+                    }
+                }
+            }
+        }
+}

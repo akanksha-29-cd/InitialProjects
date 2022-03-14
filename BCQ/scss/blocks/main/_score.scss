@@ -1,0 +1,91 @@
+
+.score-card{
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.25rem;
+    height: 70vh;
+    overflow: auto;
+    position: relative;
+    .card-row_hr:not(:first-child){
+        border-bottom: 1px solid #E66407;
+    }
+    .card-row{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        border-bottom: 1px solid #E66407;
+        padding: 0.625rem 0.625rem;
+        @include md{
+            flex-flow: row wrap;
+        }
+        .card-col{
+            display: flex;
+            justify-content: center;
+            flex: 1;
+            width: 100%;
+            @include md{
+                justify-content: flex-start;
+            }
+            .card-img{
+                text-align: center;
+                @include md{
+                    text-align: left;
+                }
+                .card-img_size{
+                    max-width: 75px;
+                    height: 75px;
+                    border-radius: 50%;
+                }
+            }
+            .card-point{
+                &__score{
+                    color: #000;
+                    font: 700 1.125rem $primary-font;
+                }
+            }
+        }
+    }
+}
+#certificate_img{
+    position: absolute;
+    top: 0;
+    left: 20%;
+    height: 440px;
+    border: 5px solid #E66407;
+}
+.card-btn{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-flow: column wrap;
+    @include md{
+        flex-flow: row wrap;
+    }
+    &__theme{
+        background-color: #E66407;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 1.125rem;
+        border-radius: 0;
+        padding: .375rem 1.25rem;
+        margin-bottom: 0.625rem;
+        outline: none;
+        border: 1px solid transparent;
+        transition: color 0.5s, background-color 0.2s;
+        @include xl{
+            margin-bottom: 0;
+        }
+        &:hover{
+            color: #E66407;
+            background-color: #fff;
+            border: 1px solid #E66407;
+        }
+        &:active{
+            background-color: darken(#E66407, 10%);
+            color: #fff;
+        }
+        &:focus{
+            box-shadow: none;
+        }
+    }
+}

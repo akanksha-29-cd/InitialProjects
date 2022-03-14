@@ -1,0 +1,14 @@
+
+* {
+    box-sizing: border-box;
+}
+html{
+    height: 100%;
+}
+body {
+    font: normal normal 400 1rem/1 $primary-font;
+    // background: url('../images/banner4.png') no-repeat fixed center;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}

@@ -1,0 +1,66 @@
+.result-danger{
+    color: #C54E4E !important;
+}
+.result-success{
+    color: #4DB1B3 !important;
+}
+.result-header{
+    &:before{
+        content: url('../images/sad-face.png');
+        position: relative;
+        top: 0.625rem;
+        right: 	0.625rem;
+    }
+}
+.result-header-success{
+    &:before{
+        content: url('../images/smily-face.png');
+        position: relative;
+        top: 0.625rem;
+        right: 	0.625rem;
+    }
+}
+.quize-summary{
+    display: block;
+    width: 100%;
+    max-width: 25.25rem;
+    margin: 0 auto;
+    padding-top: 3.125rem;
+    padding-bottom: 1.25rem;
+}
+%d-theme{
+    padding: 0.625rem 1.25rem;
+    font-size: 1.125rem;
+}
+.d-theme{
+    @extend %d-theme;
+    font-weight: 500;
+}
+.dd-theme{
+    @extend %d-theme;
+    color: #0F5299;
+}
+.btn-extra{
+    display: flex;
+    justify-content: center;
+}
+.cancel-icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    .btn-cancel{
+        background-color: #E66407;
+        color: #fff;
+        border-radius: 0;
+        font-weight: 600;
+        font-size: 1.125rem;
+        &:focus{
+            box-shadow: inset 0 0 0 0.25rem #7f6a6a47;
+            outline: 0;
+        }
+        &:hover{
+            background-color: lighten(#E66407, 10%);
+            outline: 0;
+        }
+    }  
+}
